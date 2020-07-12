@@ -87,6 +87,43 @@ sudo chmod -R 775 NeeoShare
   sudo pacman -Fy
   upgrade pacman database
   TO BE FINALISED
+  >> just quick notes before I forgot:
+  To install nvm (needed for side by side node versions ==> needed because brain has issue running with newer versions of nodes and most libraries to construct drivers are using latest versions of node ... obviously).
+  Download the content of this GIT repositiory: https://github.com/nvm-sh/nvm
+  To do that, simplest is to press the green code button in the website and choose download zip.
+  Unzip somewhere. It will create a folder nvm-master.
+  go to your putty/neeo
+  '''cd ~
+  mount -o remount,rw /
+  sudo mkdir tempo
+  sudo mkdir .nvm
+  sudo chmod 777 tempo
+  sudo chmod 777 .nvm
+  '''
+  Going to your /home/neeo on winscp, you should be able to see the tempo directory.
+  using winscp, copy the content of svn-master (not svn-master itself) inside tempo.
+  then in your putty/neeo
+  ''' cd~/tempo
+  sudo mv ./* ../.nvm
+  cd ~/.nvm
+  sudo chmod 777 install.sh      ////(maybe not usefull and gives error messages)
+  sudo chmod 777 nvm.sh
+  sudo ./install.sh        ////(maybe not usefull and gives error messages)
+  sudo ./nvm.sh
+  cd ~
+  sudo nano .bashrc
+  '''
+  This list command will open an editor to edit your .bashrc
+  copy these line at the end of the file. Save by typing usign Ctrl+s then Ctrl+x keys
+  '''
+  sudo reboot
+  '''
+  this last command will reboot your brain. On reboot, log with putty/neeo, type nvm, you should have the command installed.
+  
+
+  
+  
+  
 
 
 
