@@ -92,9 +92,16 @@ This gets pacman up and running again by refreshing local database files
 sudo pacman -Sy
 ```
 
+
 This installs the latest version of pacman (v5.2.1 as of when this was written)
 ```shell
-sudo pacman -S --force pacman
+### DONT RUN THIS RIGHT NOW
+#sudo pacman -S --force pacman
+```
+
+Install ca-certificates
+```shell
+pacman -S --force ca-certificates
 ```
 
 This installs nvm in the `/home/neeo/` directory (based on the current version of nvm available you might need to update the version in the url of the command below).
