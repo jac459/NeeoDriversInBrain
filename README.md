@@ -80,6 +80,7 @@ sudo mkdir NeeoShare
 ```
 This will make a folder in the `/var` directory and not mess with other parts of the brain. Now you need to make sure the `neeo` user has access to read and write to the directory.
 ```
+sudo chown neeo:wheel NeeoShare
 sudo chmod -R 775 NeeoShare
 ```
 5. Now, using WinSCP, you should be able to browse inside NeeoShare and copy files into it.
