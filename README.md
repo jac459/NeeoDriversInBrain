@@ -21,14 +21,14 @@ The most complex part of the instructions is to find your brain IP address when 
 - Angry IP Scanner: Download the application for mac or for windows here: https://angryip.org/. Once installed, open the application, and click scan. The appropriate IP address range should already be selected and it will scan your entire subnet looking for connected devices. Look for `neeo-recovery`. That is the ip address assigned to your brain.
 
 On step 3 of the tutorial, don't be alarmed if you don't have the same version of firmware. If you are up to date, it will most likely look like:
-```
+```bash
 Firmware package available on server:
 `0.53.8-20180424-05eb8e2-0201-092014`
 ```
 This isn't an issue.
 When downloading the new firmware, you may be stuck for a while at 0%, it is not a problem. Just go have a coffee.
 After a few minutes you should reach this status:
-```
+```bash
 Installing firmware
 Executing post-install script
 ```
@@ -56,7 +56,7 @@ If you get a new prompt with now error message it means that your brain is now s
 If you are using a Mac or Linux you first need to get the private SSH key that was produced for you. You can find the appropriate key file from the zip you extracted with the provided password in the emails sent by iotstuff@mit.ed. The file name is `id_rsa`.
 
 Then you will have an SSH capable program called Terminal. Launch it and type (making sure to substitute your ip address and key file path below appropriately)
-```
+```bash
 ssh -i /path/to/id_rsa neeo@192.168.xxx.xxx
 ```
 
@@ -74,12 +74,12 @@ The good news is WinSCP is reusing the configuration you have done using PuTTY.
 2. Hit the tools button and choose the import sites feature. Import the settings from PuTTY to connect to the NEEO Brain. User is 'neeo' by default, no password.
 3. Now you should be able to browse your brain file system. Go to the /var/ directory and try to create a new folder named 'NeeoShare' (for example). You should get an error message (permission denied).
 4. In order to be able to copy files to the brain, you need first to connect using PuTTY. Once connected, create a folder inside the var folder:
-```
+```bash
 cd /var
 sudo mkdir NeeoShare
 ```
 This will make a folder in the `/var` directory and not mess with other parts of the brain. Now you need to make sure the `neeo` user has access to read and write to the directory.
-```
+```bash
 sudo chown neeo:wheel NeeoShare
 sudo chmod -R 775 NeeoShare
 ```
