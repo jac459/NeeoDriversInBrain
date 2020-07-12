@@ -6,7 +6,7 @@ Please note that these instructions come without any guarantee of you not bricki
 
 # Instructions
 ## Rooting the device.
-The first thing you need to do is root your NEEO Brain in order to be able to access it. In order to root it you just have to use the excellent tool provided here:
+The first thing you need to do is root your NEEO Brain in order to be able to access it. In order to root it you just have to use the excellent tool provided here (huge shout out to Dennis Giese for his amazing work on this image builder):
 - https://builder.dontvacuum.me/neeo.html
 
 You just have to follow the instructions, give your email address and submit. You can perfectly "Let DustBuilder generate a SSH Keypair" for you. The rest of this tutorial will assume you are choosing this option as if you chose the other one that means you are a more advanced user and probably don't need this part of the tutorial.
