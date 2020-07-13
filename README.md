@@ -240,7 +240,13 @@ sudo pacman -S --force python3
 sudo pacman -S python-pip
 ```
 
-
+Specific broadlink:
+```shell
+sudo pacman -S --force gcc (in order to compile C, can be removed later on).
+sudo python3 -m pip install configparser
+sudo python3 -m pip install netaddr
+sudo python3 -m pip install pycrypto (this is the one needing C).
+```
 
 
 
