@@ -60,7 +60,70 @@ Then you will have an SSH capable program called Terminal. Launch it and type (m
 ssh -i /path/to/id_rsa neeo@192.168.xxx.xxx
 ```
 
-You should now be looking at an active SSH session with your NEEO brain.
+Congratulations, you should now be looking at an active SSH session with your NEEO brain.
+
+## Preparing your NEEO Brain.
+Now that you have accessed your Neeo brain, you need to do a few transformation in order to make it easy to run drivers in the brain, without disturbing the brain normal operations. To do that you will have to type a few commands in the ssh capable program you are using (putty on windows, the Terminal on mac).
+
+### Create a driver dedicated folder
+The first thing you need to do is to make your file system read-write. By default it is read-only as a protection implemented by neeo company. This way you don't risk to corrupt anything. SO in order to change something in the brain, you need to type that:
+```shell
+sudo mount -o remount,rw /
+```
+> After a reboot, your file system will be again read-only. So you will need to type that again for any change in the brain like installing a driver. If you run into a problem like 'disk full', you can assume you forgot to mount read-write (or you installed already an awful number of drivers and should not be reading this tuto anymore ;-)).
+Now we will create a special place in order to install your drivers. To do that we will create a directory inside your user's place. 
+Your user name is neeo, to get there you need to type:
+```shell
+cd ~
+```
+or
+```shell
+cd /home/neeo/
+```
+Then create a 'drivers' directory:
+```shell
+sudo mkdir drivers
+```
+```shell
+sudo chown neeo:wheel drivers
+sudo chmod -R 775 drivers
+```
+The second and third commands allow you to copy files from SCP.
+
+### Install a recent version of node.js
+Now you need to install node.js. Node.js is the underlying technology used by the Neeo brain. It is already installed but an older version. In order to be able to install modern and efficient drivers, you need to also install the last version of node.js. The one used by neeo is 8, the most recent one at the time of writting this tutorial is 12.
+The tool that will help us load node is named nvm. The tool that will help us install nvm is ca-certificates and the tool that will help us install ca-certifcates is pacman (simple, isn't it?).
+This gets pacman up and running again by refreshing local database files.
+```shell
+sudo pacman -Sy
+```
+(if you have a disc full error, it is because you are not mounted read-write, read the tuto again :-)).
+
+This gets pacman up and running again by refreshing local database files
+```shell
+sudo pacman -Sy
+```
+In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certificate this way:
+Install ca-certificates
+```shell
+sudo pacman -S --force ca-certificates
+```
+(press Y on the prompt)
+Now you can install nvm.
+
+This installs nvm in the `/home/neeo/` directory (based on the current version of nvm available you might need to update the version in the url of the command below).
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+> after this step, you need to close the command window (terminal or putty) and reopen it in order for your changes to take effect.
+
+FINALLY, you can install the last version of node without overwritting the one used by Neeo.
+Install nodejs v12 latest. This should also install npm 6.14.5 (a tool helping to quickly install drivers).
+```shell
+nvm install --lts=erbium
+```
+AND THAT'S IT ! (at least for this step).
+
 
 ## Installing a driver.
 Now you are reaching the meaty part of the tutorial.
@@ -91,6 +154,12 @@ This gets pacman up and running again by refreshing local database files
 ```shell
 sudo pacman -Sy
 ```
+In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certifcate this way:
+Install ca-certificates
+```shell
+sudo pacman -S --force ca-certificates
+```
+(press Y on the prompt)
 
 
 This installs the latest version of pacman (v5.2.1 as of when this was written)
