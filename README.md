@@ -91,7 +91,8 @@ sudo chmod -R 775 drivers
 The second and third commands allow you to copy files from SCP.
 
 ### Install a recent version of node.js
-Now you need to install node.js. Node.js is the underlying technology used by the Neeo brain. It is already installed but an older version. In order to be able to install modern and efficient drivers, you need to also install the last version of node.js. The one used by neeo is 8, the most recent one at the time of writting this tutorial is 12.
+Now you need to install node.js. Node.js is the underlying technology used by the Neeo brain. It is already installed but an older version. In order to be able to install modern and efficient drivers, you need to also install the last version of node.js. The node used by neeo is version 8, the most recent version of node at the time of writting this tutorial is 12.
+
 The tool that will help us load node is named nvm. The tool that will help us install nvm is ca-certificates and the tool that will help us install ca-certifcates is pacman (simple, isn't it?).
 This gets pacman up and running again by refreshing local database files.
 ```shell
@@ -99,10 +100,6 @@ sudo pacman -Sy
 ```
 (if you have a disc full error, it is because you are not mounted read-write, read the tuto again :-)).
 
-This gets pacman up and running again by refreshing local database files
-```shell
-sudo pacman -Sy
-```
 In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certificate this way:
 Install ca-certificates
 ```shell
