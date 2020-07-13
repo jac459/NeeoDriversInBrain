@@ -233,6 +233,9 @@ sudo reboot
 ```
   On reboot, log with putty/neeo, type nvm, you should have the command installed.
 
+Installing Python3:
+sudo rm /usr/share/libalpm/hooks/detect-old-perl-modules.hook
+sudo pacman -S --force python3
 
 
 
