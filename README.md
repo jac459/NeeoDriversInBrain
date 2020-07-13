@@ -246,6 +246,12 @@ sudo pacman -S --force gcc (in order to compile C, can be removed later on).
 sudo python3 -m pip install configparser
 sudo python3 -m pip install netaddr
 sudo python3 -m pip install pycrypto (this is the one needing C).
+sudo python3 setup.py install
+## need to install wheel as root
+sudo su
+pip install wheel
+exit
+sudo python3 setup.py install
 ```
 
 
