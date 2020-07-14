@@ -45,7 +45,7 @@ In order to connect to your NEEO Brain, you need a SSH tool.
 #### Windows
 If you are running Windows the most commonly used application for SSH is PuTTY. you can download PuTTY here: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 After you have installed putty, launch it.
-1. Select the Session tab in the Category tree, input/paste the IP address of your NEEO Brain in the 'Host Name (or IP address)' box on the right part.
+1. Select the Session tab in the Category tree, input/paste the IP address of your NEEO Brain in the 'Host Name (or IP address)' box in the right part.
 2. On the Category tree, go to Connection>Ssh>Auth tab. On the right bottom part of the screen, you should see a browse button with "Private key file for authentication". Press it and go find the key from the zip you extracted with the provided password. It is a file with ppk extension.
 3. Then you can hit the load button and you will get a warning message on which just answer 'yes'.
 4. Now you should be in front of a new window with 'login as' prompt. Type neeo and hit 'enter' button.
