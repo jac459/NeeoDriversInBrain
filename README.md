@@ -119,41 +119,6 @@ Install nodejs v12 latest. This should also install npm 6.14.5 (a tool helping t
 ```shell
 nvm install --lts=erbium
 ```
-## Updating Pacman
-This gets pacman up and running again by refreshing local database files
-```shell
-sudo pacman -Sy
-```
-In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certifcate this way:
-Install ca-certificates
-```shell
-sudo pacman -S --force ca-certificates
-```
-(press Y on the prompt)
-
-Install ca-certificates
-```shell
-pacman -S --force ca-certificates
-```
-
-## Installing NVM
-This installs nvm in the `/home/neeo/` directory (based on the current version of nvm available you might need to update the version in the url of the command below).
-```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-
-Install nodejs v12 latest. This should also install npm 6.14.5.
-```shell
-nvm install --lts=erbium
-```
-
-In order to switch back and forth between system installed nodejs and nvm installed you need to use the `nvm use` command. You can see some commands and responses below to illustrate operation.
-```shell
-$ nvm use system
-Now using system version of node: v8.11.2
-$ nvm use lts/erbium
-Now using node v12.18.2 (npm v6.14.5)
-```
 
 Then you should reboot the brain.
 ```shell
@@ -212,6 +177,17 @@ sudo chown neeo:wheel NeeoShare
 sudo chmod -R 775 NeeoShare
 ```
 5. Now, using WinSCP, you should be able to browse inside NeeoShare and copy files into it.
+
+#### Note
+
+In order to switch back and forth between system installed nodejs and nvm installed you need to use the `nvm use` command. You can see some commands and responses below to illustrate operation.
+```shell
+$ nvm use system
+Now using system version of node: v8.11.2
+$ nvm use lts/erbium
+Now using node v12.18.2 (npm v6.14.5)
+```
+
 
 
 
