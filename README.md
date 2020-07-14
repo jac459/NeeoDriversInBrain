@@ -125,9 +125,7 @@ Then you should reboot the brain.
 sudo reboot
 ```
   On reboot, log with putty/neeo, type nvm, you should have the command installed (and don't forget to run this command if you want to modify stuffs:
-  ```shell
-sudo mount -o remount,rw /
-```
+ sudo mount -o remount,rw /)
 
 ## Installing Python3:
 ```shell
