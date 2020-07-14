@@ -119,6 +119,74 @@ Install nodejs v12 latest. This should also install npm 6.14.5 (a tool helping t
 ```shell
 nvm install --lts=erbium
 ```
+## Updating Pacman
+This gets pacman up and running again by refreshing local database files
+```shell
+sudo pacman -Sy
+```
+In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certifcate this way:
+Install ca-certificates
+```shell
+sudo pacman -S --force ca-certificates
+```
+(press Y on the prompt)
+
+Install ca-certificates
+```shell
+pacman -S --force ca-certificates
+```
+
+## Installing NVM
+This installs nvm in the `/home/neeo/` directory (based on the current version of nvm available you might need to update the version in the url of the command below).
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+Install nodejs v12 latest. This should also install npm 6.14.5.
+```shell
+nvm install --lts=erbium
+```
+
+In order to switch back and forth between system installed nodejs and nvm installed you need to use the `nvm use` command. You can see some commands and responses below to illustrate operation.
+```shell
+$ nvm use system
+Now using system version of node: v8.11.2
+$ nvm use lts/erbium
+Now using node v12.18.2 (npm v6.14.5)
+```
+
+Then you should reboot the brain.
+```shell
+sudo reboot
+```
+  On reboot, log with putty/neeo, type nvm, you should have the command installed.
+
+## Installing Python3:
+```shell
+sudo rm /usr/share/libalpm/hooks/detect-old-perl-modules.hook
+sudo pacman -S --force python3
+sudo pacman -S python-pip
+```
+
+Specific broadlink:
+```shell
+sudo pacman -S --force gcc (in order to compile C, can be removed later on).
+sudo useradd -r -s /usr/bin/nologin -U systemd-timesync (fix time in the brain. it is brokenmon the neeo brain)
+sudo reboot (now you need to reboot)
+sudo mount -o remount,rw /  (remount read/write after reboot)
+
+##  need to install wheel as root
+sudo su
+pip install wheel
+exit
+sudo python3 -m pip install configparser
+sudo python3 -m pip install netaddr
+sudo python3 -m pip install pycrypto (this is the one needing C).
+
+## needed to install BroalinkNeeo Driver once copied to drivers folder over WinSCP or equivalent
+cd /home/neeo/drivers/BroadlinkNeeo-master/python-broadlink-master
+sudo python3 setup.py install (oonly to install broadlink). Takes some time - Be Patient!
+```
 AND THAT'S IT ! (at least for this step).
 
 
@@ -145,116 +213,6 @@ sudo chmod -R 775 NeeoShare
 ```
 5. Now, using WinSCP, you should be able to browse inside NeeoShare and copy files into it.
 
-# COMMANDS THAT NEED TO BE INTEGRATED INTO HOWTO
-
-This gets pacman up and running again by refreshing local database files
-```shell
-sudo pacman -Sy
-```
-In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certifcate this way:
-Install ca-certificates
-```shell
-sudo pacman -S --force ca-certificates
-```
-(press Y on the prompt)
-
-
-This installs the latest version of pacman (v5.2.1 as of when this was written)
-```shell
-### DONT RUN THIS RIGHT NOW
-#sudo pacman -S --force pacman
-```
-
-Install ca-certificates
-```shell
-pacman -S --force ca-certificates
-```
-
-This installs nvm in the `/home/neeo/` directory (based on the current version of nvm available you might need to update the version in the url of the command below).
-```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-
-Install nodejs v12 latest. This should also install npm 6.14.5.
-```shell
-nvm install --lts=erbium
-```
-
-In order to switch back and forth between system installed nodejs and nvm installed you need to use the `nvm use` command. You can see some commands and responses below to illustrate operation.
-```shell
-$ nvm use system
-Now using system version of node: v8.11.2
-$ nvm use lts/erbium
-Now using node v12.18.2 (npm v6.14.5)
-```
-
-sudo pacman -Fy
-  upgrade pacman database
-  TO BE FINALISED
-  >> just quick notes before I forgot:
-  To install nvm (needed for side by side node versions ==> needed because brain has issue running with newer versions of nodes and most libraries to construct drivers are using latest versions of node ... obviously).
-  Download the content of this GIT repositiory: https://github.com/nvm-sh/nvm
-  To do that, simplest is to press the green code button in the website and choose download zip.
-  Unzip somewhere. It will create a folder nvm-master.
-  go to your putty/neeo
-```
-cd ~
-mount -o remount,rw /
-sudo mkdir tempo
-sudo mkdir .nvm
-sudo chmod 777 tempo
-sudo chmod 777 .nvm
-```
-
-Going to your /home/neeo on winscp, you should be able to see the tempo directory.
-using winscp, copy the content of svn-master (not svn-master itself) inside tempo.
-then in your putty/neeo
-```
-cd~/tempo
-sudo mv ./* ../.nvm
-cd ~/.nvm
-sudo chmod 777 install.sh      ////(maybe not usefull and gives error messages)
-sudo chmod 777 nvm.sh
-sudo ./install.sh        ////(maybe not usefull and gives error messages)
-sudo ./nvm.sh
-cd ~
-sudo nano .bashrc
-```
-  This list command will open an editor to edit your .bashrc
-  copy these line at the end of the file. Save by typing usign Ctrl+s then Ctrl+x keys
-
-```
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-```
-Then you should reboot the brain.
-```shell
-sudo reboot
-```
-  On reboot, log with putty/neeo, type nvm, you should have the command installed.
-
-Installing Python3:
-```shell
-sudo rm /usr/share/libalpm/hooks/detect-old-perl-modules.hook
-sudo pacman -S --force python3
-sudo pacman -S python-pip
-```
-
-Specific broadlink:
-```shell
-sudo pacman -S --force gcc (in order to compile C, can be removed later on).
- sudo useradd -r -s /usr/bin/nologin -U systemd-timesync //fix time in the brain. it is brokenmon the neeo brain
- then need to reboot sudo rebbot (need remount after
-## need to install wheel as root
-sudo su
-pip install wheel
-exit
-sudo python3 -m pip install configparser
-sudo python3 -m pip install netaddr
-sudo python3 -m pip install pycrypto (this is the one needing C).
-cd /home/neeo/drivers/BroadlinkNeeo-master/python-broadlink-master
-sudo python3 setup.py install (oonly to install broadlink). crazy long
-```
 
 
 
