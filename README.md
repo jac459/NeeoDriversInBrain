@@ -243,15 +243,17 @@ sudo pacman -S python-pip
 Specific broadlink:
 ```shell
 sudo pacman -S --force gcc (in order to compile C, can be removed later on).
-sudo python3 -m pip install configparser
-sudo python3 -m pip install netaddr
-sudo python3 -m pip install pycrypto (this is the one needing C).
-sudo python3 setup.py install
+ sudo useradd -r -s /usr/bin/nologin -U systemd-timesync //fix time in the brain. it is brokenmon the neeo brain
+ then need to reboot sudo rebbot (need remount after
 ## need to install wheel as root
 sudo su
 pip install wheel
 exit
-sudo python3 setup.py install
+sudo python3 -m pip install configparser
+sudo python3 -m pip install netaddr
+sudo python3 -m pip install pycrypto (this is the one needing C).
+cd /home/neeo/drivers/BroadlinkNeeo-master/python-broadlink-master
+sudo python3 setup.py install (oonly to install broadlink). crazy long
 ```
 
 
