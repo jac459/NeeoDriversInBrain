@@ -45,12 +45,12 @@ In order to connect to your NEEO Brain, you need a SSH tool.
 #### Windows
 If you are running Windows the most commonly used application for SSH is PuTTY. you can download PuTTY here: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 After you have installed putty, launch it.
-1. Copy the IP address of your NEEO Brain in the 'Host Name (or IP address)' part.
-2. On the category part, go to connection/ssh/Auth menu. On the bottom part of the screen, you should see a browse button with "Private key file for authentication". Press it and go find the key from the zip you extracted with the provided password. It is a file with ppk extension.
+1. Select the Session tab in the Category tree, input/paste the IP address of your NEEO Brain in the 'Host Name (or IP address)' box on the right part.
+2. On the Category tree, go to Connection>Ssh>Auth tab. On the right bottom part of the screen, you should see a browse button with "Private key file for authentication". Press it and go find the key from the zip you extracted with the provided password. It is a file with ppk extension.
 3. Then you can hit the load button and you will get a warning message on which just answer 'yes'.
 4. Now you should be in front of a new window with 'login as' prompt. Type neeo and hit 'enter' button.
-If you get a new prompt with now error message it means that your brain is now successfully rooted. Congratulation.
-5. In the future, when reconnecting, you should repeat the same instructions but before opening, take time to go back to the main page of putty and save the session (giving it a recognizable name). So that you won't have to type the IP or load the file again. Putty will do it for you.
+If you get a new prompt with now error message it means that your brain is now successfully rooted. Congratulations.
+5. It's recomended to save the current session after all the IP and key file are input and selected. This can be done by going back to the Session tab and press Save after giving the session a recognizable name in the 'saved session box'. This can save time for the future sessions since you won't have to type the IP or load the file again. Putty will do it for you.
 
 #### Mac or Linux
 If you are using a Mac or Linux you first need to get the private SSH key that was produced for you. You can find the appropriate key file from the zip you extracted with the provided password in the emails sent by iotstuff@mit.edu. The file name is `id_rsa`.
