@@ -70,8 +70,23 @@ The first thing you need to do is to make your file system read-write. By defaul
 ```shell
 sudo mount -o remount,rw /
 ```
+
+This next part is optional but if you don't want to have to type that `mount` command above every time your brain gets restarted, you could modify the `/etc/fstab` file to make that filesystem always mount as Read/Write (RW). For that you would do the following:
+
+```
+sudo nano /etc/fstab
+```
+
+Then find the line that has a `<dir>` of `/`, then change the options from `ro` to `rw,noatime`. That line will end up looking something like this:
+```
+# <file system> <dir>   <type>  <options>                            <dump>  <pass>
+/dev/mmcblk0p2  /       ext2    rw,noatime                           0       1
+```
+
+If you don't edit your `/etc/fstab` file then this applies to you:
 > After a reboot, your file system will be again read-only. So you will need to type that again for any change in the brain like installing a driver. If you run into a problem like 'disk full', you can assume you forgot to mount read-write (or you installed already an awful number of drivers and should not be reading this tuto anymore ;-)).
-Now we will create a special place in order to install your drivers. To do that we will create a directory inside your user's place. 
+
+Now we will create a special place in order to install your drivers. To do that we will create a directory inside your user's place.
 Your user name is neeo, to get there you need to type:
 ```shell
 cd ~
@@ -188,8 +203,4 @@ Now using system version of node: v8.11.2
 $ nvm use lts/erbium
 Now using node v12.18.2 (npm v6.14.5)
 ```
-
-
-
-
 
