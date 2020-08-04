@@ -1,0 +1,22 @@
+Just adding some guidance and troubleshooting steps here.
+
+// Viewing your remote from webpage (same experience as mobile)
+
+EUI (Main Page): http://BrainIP:3200/eui/
+IUI (Settings): http://BrainIP:3200/iui/#/settings/list
+
+// Troubleshooting
+
+Issues with Remote: Reset remote.  Hold power button for 10 seconds.  Press and hold back button and power button together untill it boots to Get Started Screen.
+Then follow the guide by pairing with selected Brain (Press top button).
+
+Remote into Recovery: Hold power button for 10 seconds.  Press and hold mute button and power button together untill it boots to recovery.
+
+Brain into Recovery: Unplug Brain, hold top button on brain, plug back in brain.  Keep holding top button untill red led light is blinking red.
+ Then plug brain into Ethernet connection.  if you haven't set a statit IP for it, you will need to check your router to confirm the brain IP.
+  Then open web browser and type in the IP of the Brain. 
+   Press Check Available Firmware, then Download Firmware, then Install Firmware...
+   
+    NOTE: This process will be different if you are restoring custom rooted firmware.
+     FOR ROOT FW and guide.  You will need to follow the process at the below link and follow the _howto.html
+      https://builder.dontvacuum.me/neeo.html
