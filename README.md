@@ -145,8 +145,7 @@ sudo reboot
 ## Installing Python3:
 ```shell
 sudo rm /usr/share/libalpm/hooks/detect-old-perl-modules.hook
-sudo pacman -S --force python3
-sudo pacman -S python-pip
+sudo pacman -S --force python3 python-pip
 ```
 
 Specific broadlink:
