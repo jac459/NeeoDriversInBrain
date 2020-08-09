@@ -5,6 +5,22 @@ Just adding some guidance and troubleshooting steps here.
 EUI (Main Page): http://BrainIP:3200/eui/
 IUI (Settings): http://BrainIP:3200/iui/#/settings/list
 
+Change WiFi Region
+ Some may be interested in changing the WiFi region of the Brain they have.  For example, you live in the US and have an EU Brain (hence less power in your WiFi signal)
+  To do this, you need some skills with WinSCP/Putty or equivelent to copy/move/delete files.  Use sudo command.
+   
+   Step 1.  Copy the wlan.region file from the /tmp to your pc or edit it in Terminal.
+    Change text stating EU to US and Save.  Now move it to a folder in the Brain like drivers or NeeoShare that you can access.
+     Also copy it a second time and rename it wlandummy.region
+   
+   Step 2.  We need to use the RM command to delete the existing wlan.region file in /tmp.  Then we need to use the MV command to move our new edited wlan.region file to /tmp folder.
+   
+   Step 3.  Copy the neeoenv.sh file from the /etc/profile.d to your pc or edit it in Terminal.
+    Change text stating wlan.region to wlandummy.region and Save.  Now move it to a folder in the Brain like drivers or NeeoShare that you can access.
+  
+   Step 4.  We need to use the RM command to delete the existing neeoenv.sh file in /etc/profile.d.  Then we need to use the MV command to move our new edited neeoenv.sh file to /etc/profile.d folder.
+   
+
 // Troubleshooting
 
 Issues with Remote: Reset remote.  Hold power button for 10 seconds.  Press and hold back button and power button together untill it boots to Get Started Screen.
@@ -20,3 +36,12 @@ Brain into Recovery: Unplug Brain, hold top button on brain, plug back in brain.
     NOTE: This process will be different if you are restoring custom rooted firmware.
      FOR ROOT FW and guide.  You will need to follow the process at the below link and follow the _howto.html
       https://builder.dontvacuum.me/neeo.html
+
+Remote Troubleshooting
+ Enable Debug Mode
+  Press Menu and Channel Down Buttons on remote simultaniously (left then right, left then right.  Rapidly untill the screen is filled with debug info)
+  
+Test Screen Frames Per Second
+ Enable FPS Test Mode
+  Press Back and Channel Up Buttons on remote simultaniously (left then right, left then right.  Rapidly untill the screen is filled with debug info)
+  
