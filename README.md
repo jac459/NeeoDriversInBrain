@@ -1,6 +1,8 @@
 # NeeoDriversInBrain
 Set of instructions/helpers in order to load drivers directly in the NEEO Brain (no need for secondary server).
 
+## Telegram Group: https://t.me/joinchat/NocMDU9RCVP9hSCJxPsCEg
+
 ### Disclaimer
 Please note that these instructions come without any guarantee of you not bricking your NEEO Brain. It is also your responsibility to check if what you do with the NEEO Brain is part of the usage authorized by Neeo or Control4 company.
 
