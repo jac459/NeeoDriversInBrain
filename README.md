@@ -117,10 +117,10 @@ sudo pacman -Sy
 ```
 (if you have a disc full error, it is because you are not mounted read-write, read the tuto again :-)).
 
-In order to be able to download the nvm tool, we need to be sure we can trust the site, this is done by refreshing the certificate this way:
-Install ca-certificates
+Now let's get our pacman install up to date:
+Install pacman over the existing pacman
 ```shell
-sudo pacman -S --force ca-certificates
+sudo pacman -S --force pacman
 ```
 (press Y on the prompt)
 Now you can install nvm.
@@ -146,13 +146,12 @@ sudo reboot
 
 ## Installing Python3:
 ```shell
-sudo rm /usr/share/libalpm/hooks/detect-old-perl-modules.hook
-sudo pacman -S --force python3 python-pip
+sudo pacman -S --overwrite '/*' python3 python-pip
 ```
 
 Specific broadlink:
 ```shell
-sudo pacman -S --force gcc (in order to compile C, can be removed later on).
+sudo pacman -S --overwrite '/*' gcc (in order to compile C, can be removed later on).
 sudo useradd -r -s /usr/bin/nologin -U systemd-timesync (fix time in the brain. it is brokenmon the neeo brain)
 sudo reboot (now you need to reboot)
 sudo mount -o remount,rw /  (remount read/write after reboot)
