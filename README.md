@@ -159,6 +159,9 @@ Specific broadlink:
 sudo pacman -S --overwrite '/*' gcc (in order to compile C, can be removed later on).
 sudo useradd -r -s /usr/bin/nologin -U systemd-timesync (fix time in the brain. it is brokenmon the neeo brain)
 sudo reboot (now you need to reboot)
+```
+only if you didn't update your fstab file to set yourself always readwrite:
+```
 sudo mount -o remount,rw /  (remount read/write after reboot)
 
 ##  need to install wheel as root
@@ -208,4 +211,56 @@ Now using system version of node: v8.11.2
 $ nvm use lts/erbium
 Now using node v12.18.2 (npm v6.14.5)
 ```
+
+#### Work in progress meta installation ??DO NOT USE YET
+download meta zip (go to https://github.com/jac459/metadriver, download the zip through the green code button).
+unzip in a folder and suppress the following items inside:
+.vscode
+AVReceiver
+pictures
+.gitignore
+README.md
+TUTORIALS.md
+package-lock.json //very important
+Rename the folder from metadriver-master to metadriver.
+copy this folder inside /var/neeoShare
+with the terminal, go to this var/neeoShare/metadriver folder
+type 
+```
+npm init
+```
+then multiple times enter (accept all default).
+```
+ sudo npm install -g npm
+ 
+ cd /usr/share/perl5/vendor_perl/Date
+ sudo rm -r *
+cd /usr/share/perl5/vendor_perl/Time/
+sudo rm -r *
+cd /usr/share/perl5/vendor_perl/Mail
+sudo rm -r *
+sudo rm -r  /usr/share/perl5/vendor_perl/MailTools.pm
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/share/perl5/vendor_perl/MailTools.pm
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/pcre2*
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/libpcre2-*
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/pkgconfig/libpcre2*
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/share/licenses/pcre2/LICENSE
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/egrep
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/fgrep
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/grep
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/captest
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/bin/filecap
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/bin/netcap
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/bin/pscap
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/lib/libcap*
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/lib/pkgconfig/libcap-ng.pc
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/share/aclocal/cap-ng.m4
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/mkhomedir_helper
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/pam_timestamp_check
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/unix_chkpwd
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/unix_update
+[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/libpam*
+```
+==> Not working deleting too much.
+
 
