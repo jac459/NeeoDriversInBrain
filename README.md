@@ -144,7 +144,7 @@ sudo reboot
   On reboot, log with putty/neeo, type nvm, you should have the command installed (and don't forget to run this command if you want to modify stuffs:
  sudo mount -o remount,rw /)
 
-## Installing git:
+## Installing git (if you want to checkout a repo):
 ```shell
 sudo pacman -S --overwrite '/*' git
 ```
@@ -225,14 +225,14 @@ package-lock.json //very important
 Rename the folder from metadriver-master to metadriver.
 copy this folder inside /var/neeoShare
 with the terminal, go to this var/neeoShare/metadriver folder
-type 
+type
 ```
 npm init
 ```
 then multiple times enter (accept all default).
 ```
  sudo npm install -g npm
- 
+
  cd /usr/share/perl5/vendor_perl/Date
  sudo rm -r *
 cd /usr/share/perl5/vendor_perl/Time/
