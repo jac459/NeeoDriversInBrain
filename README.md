@@ -144,6 +144,11 @@ sudo reboot
   On reboot, log with putty/neeo, type nvm, you should have the command installed (and don't forget to run this command if you want to modify stuffs:
  sudo mount -o remount,rw /)
 
+## Installing git:
+```shell
+sudo pacman -S --overwrite '/*' git
+```
+
 ## Installing Python3:
 ```shell
 sudo pacman -S --overwrite '/*' python3 python-pip
