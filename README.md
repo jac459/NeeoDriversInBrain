@@ -207,3 +207,22 @@ $ nvm use lts/erbium
 Now using node v12.18.2 (npm v6.14.5)
 ```
 
+#### Work in progress meta installation
+download meta zip (go to https://github.com/jac459/metadriver, download the zip through the green code button).
+unzip in a folder and suppress the following items inside:
+.vscode
+AVReceiver
+pictures
+.gitignore
+README.md
+TUTORIALS.md
+Rename the folder from metadriver-master to metadriver.
+copy this folder inside /var/neeoShare
+with the terminal, go to this var/neeoShare/metadriver folder
+type 
+```
+npm init
+```
+then multiple times enter (accept all default).
+
+ sudo npm install -g npm
