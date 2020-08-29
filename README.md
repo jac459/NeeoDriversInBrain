@@ -154,6 +154,9 @@ Specific broadlink:
 sudo pacman -S --overwrite '/*' gcc (in order to compile C, can be removed later on).
 sudo useradd -r -s /usr/bin/nologin -U systemd-timesync (fix time in the brain. it is brokenmon the neeo brain)
 sudo reboot (now you need to reboot)
+```
+only if you didn't update your fstab file to set yourself always readwrite:
+```
 sudo mount -o remount,rw /  (remount read/write after reboot)
 
 ##  need to install wheel as root
