@@ -225,7 +225,7 @@ type
 npm init
 ```
 then multiple times enter (accept all default).
-
+```
  sudo npm install -g npm
  
  cd /usr/share/perl5/vendor_perl/Date
@@ -255,6 +255,7 @@ sudo rm -r  /usr/share/perl5/vendor_perl/MailTools.pm
 [neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/unix_chkpwd
 [neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/unix_update
 [neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/libpam*
+```
 ==> Not working deleting too much.
 
 
