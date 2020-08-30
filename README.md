@@ -88,22 +88,18 @@ Then find the line that has a `<dir>` of `/`, then change the options from `ro` 
 If you don't edit your `/etc/fstab` file then this applies to you:
 > After a reboot, your file system will be again read-only. So you will need to type that again for any change in the brain like installing a driver. If you run into a problem like 'disk full', you can assume you forgot to mount read-write (or you installed already an awful number of drivers and should not be reading this tuto anymore ;-)).
 
-Now we will create a special place in order to install your drivers. To do that we will create a directory inside your user's place.
-Your user name is neeo, to get there you need to type:
+Now we will create a special place in order to install your drivers. To do that we will create a directory inside a place surviving firmware update.
+In the neeo brain, this place is named steady:
 ```shell
-cd ~
+cd /steady
 ```
-or
+Then create a 'neeo-custom' directory:
 ```shell
-cd /home/neeo/
-```
-Then create a 'drivers' directory:
-```shell
-sudo mkdir drivers
+sudo mkdir neeo-custom
 ```
 ```shell
-sudo chown neeo:wheel drivers
-sudo chmod -R 775 drivers
+sudo chown neeo:wheel neeo-custom
+sudo chmod -R 775 neeo-custom
 ```
 The second and third commands allow you to copy files from SCP.
 
@@ -144,7 +140,7 @@ sudo reboot
   On reboot, log with putty/neeo, type nvm, you should have the command installed (and don't forget to run this command if you want to modify stuffs:
  sudo mount -o remount,rw /)
 
-## Installing git (if you want to checkout a repo):
+## Installing git (if you want to checkout a repo, needed to install the meta):
 ```shell
 sudo pacman -S --overwrite '/*' git
 ```
@@ -154,7 +150,7 @@ sudo pacman -S --overwrite '/*' git
 sudo pacman -S --overwrite '/*' python3 python-pip
 ```
 
-Specific broadlink:
+Specific broadlink: //not working
 ```shell
 sudo pacman -S --overwrite '/*' gcc (in order to compile C, can be removed later on).
 sudo useradd -r -s /usr/bin/nologin -U systemd-timesync (fix time in the brain. it is brokenmon the neeo brain)
@@ -179,12 +175,12 @@ sudo python3 setup.py install (oonly to install broadlink). Takes some time - Be
 AND THAT'S IT ! (at least for this step).
 
 
-## Installing a driver.
+## Installing a driver. 
 Now you are reaching the meaty part of the tutorial.
 Installing a driver directly inside your NEEO Brain.
 Now you need to download another tool SCP (Secure Copy Protocol). SCP allows to copy files through an SSH connection.
 
-#### For Windows Users
+#### For Windows Users DEPRECATED
 For this tutorial we will assume you are using WinSCP which allows you to copy files directly from your filesystem (or raspberry pi share) to the NEEO Brain.
 The good news is WinSCP is reusing the configuration you have done using PuTTY.
 1. Open WinSCP and hit the New Session button. You will see a new modal window with tools on the bottom left.
@@ -212,55 +208,17 @@ $ nvm use lts/erbium
 Now using node v12.18.2 (npm v6.14.5)
 ```
 
-#### Work in progress meta installation ??DO NOT USE YET
-download meta zip (go to https://github.com/jac459/metadriver, download the zip through the green code button).
-unzip in a folder and suppress the following items inside:
-.vscode
-AVReceiver
-pictures
-.gitignore
-README.md
-TUTORIALS.md
-package-lock.json //very important
-Rename the folder from metadriver-master to metadriver.
-copy this folder inside /var/neeoShare
-with the terminal, go to this var/neeoShare/metadriver folder
-type
-```
-npm init
-```
-then multiple times enter (accept all default).
-```
- sudo npm install -g npm
+#### Work in progress meta installation
 
- cd /usr/share/perl5/vendor_perl/Date
- sudo rm -r *
-cd /usr/share/perl5/vendor_perl/Time/
-sudo rm -r *
-cd /usr/share/perl5/vendor_perl/Mail
-sudo rm -r *
-sudo rm -r  /usr/share/perl5/vendor_perl/MailTools.pm
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/share/perl5/vendor_perl/MailTools.pm
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/pcre2*
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/libpcre2-*
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/pkgconfig/libpcre2*
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/share/licenses/pcre2/LICENSE
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/egrep
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/fgrep
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/grep
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/captest
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/bin/filecap
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/bin/netcap
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/bin/pscap
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/lib/libcap*
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r  /usr/lib/pkgconfig/libcap-ng.pc
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/share/aclocal/cap-ng.m4
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/mkhomedir_helper
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/pam_timestamp_check
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/unix_chkpwd
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/bin/unix_update
-[neeo@NEEO-5072dc26 bin]$ sudo rm -r /usr/lib/libpam*
-```
-==> Not working deleting too much.
 
+```
+cd /steady/neeo-custom/ 
+sudo npm install jac459/metadriver
+sudo su
+mkdir pm2-meta
+PM2_HOME='/steady/neeo-custom/pm2-meta' pm2 start /steady/neeo-custom/node_modules/\@jac459/metadriver/meta.js --interpreter=/home/neeo/.nvm/versions/node/v12.18.3/bin/node
+
+PM2_HOME='/steady/neeo-custom/pm2-meta' pm2 list
+PM2_HOME='/steady/neeo-custom/pm2-meta' pm2 save
+PM2_HOME='/steady/neeo-custom/pm2-meta' pm2 startup
 
