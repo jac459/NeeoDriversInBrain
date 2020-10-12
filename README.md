@@ -213,6 +213,9 @@ Now using node v12.18.2 (npm v6.14.5)
 
 ```
 cd /steady/neeo-custom/ 
+npm install npm -g 
+
+
 sudo npm install jac459/metadriver
 sudo su
 mkdir pm2-meta
