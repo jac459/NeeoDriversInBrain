@@ -1,4 +1,5 @@
 # NeeoDriversInBrain
+
 Set of instructions/helpers in order to load drivers directly in the NEEO Brain (no need for secondary server).
 
 ## Telegram Group: https://t.me/joinchat/NocMDU9RCVP9hSCJxPsCEg
@@ -63,6 +64,9 @@ ssh -i /path/to/id_rsa neeo@192.168.xxx.xxx
 ```
 
 Congratulations, you should now be looking at an active SSH session with your NEEO brain.
+
+# this part is partly deprecated. An automatic script has been created. Check in 2021Onwards repository.
+
 
 ## Preparing your NEEO Brain.
 Now that you have accessed your Neeo brain, you need to do a few transformation in order to make it easy to run drivers in the brain, without disturbing the brain normal operations. To do that you will have to type a few commands in the ssh capable program you are using (putty on windows, the Terminal on mac).
