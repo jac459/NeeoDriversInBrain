@@ -65,6 +65,7 @@ ssh -i /path/to/id_rsa neeo@192.168.xxx.xxx
 
 Congratulations, you should now be looking at an active SSH session with your NEEO brain.
 
+
 # this part is partly deprecated. An automatic script has been created. Check in 2021Onwards repository.
 
 
