@@ -1,5 +1,7 @@
 # NeeoDriversInBrain
 
+# https://youtu.be/rT1Uh7vEpCc
+
 Set of instructions/helpers in order to load drivers directly in the NEEO Brain (no need for secondary server).
 
 ## Telegram Group: https://t.me/joinchat/NocMDU9RCVP9hSCJxPsCEg
