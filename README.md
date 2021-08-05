@@ -1,8 +1,5 @@
 # NeeoDriversInBrain
 
-# /!\ /!\ /!\ IMPORTANT: It has been reported than the rooting key has an issue since a few weeks. Problem has been reported to the creator. /!\ /!\ /!\
-Meanwhile you can install the meta in any linux or windows device. It works great on a raspberry:
-https://github.com/jac459/meta
 
 # https://youtu.be/rT1Uh7vEpCc
 
