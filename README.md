@@ -1,3 +1,8 @@
+# warning, if interested to use meta, this method is not anymore the recommended one.
+Please consult this link:
+https://t.me/joinchat/NocMDU9RCVP9hSCJxPsCEg
+You will find here a large community to help you.
+
 # NeeoDriversInBrain
 
 
